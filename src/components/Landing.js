@@ -68,6 +68,7 @@ export default class Landing extends Component {
     })
 
     console.log(this.state.results)
+    this.props.history.push('/results');
   }
 
   makeRequest(token, location, searchTerm) {
@@ -93,6 +94,9 @@ export default class Landing extends Component {
     console.log(this.state.location);
   }
 
+  submitLocation() {
+    this.props.history.push('/results');
+  }
 
   render() {
     return (
