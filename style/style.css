@@ -3,12 +3,12 @@
   position: relative;
   text-align: center;
   padding-top: 30vh;
-  color: #F5F5F5;
 }
 
 #landing h1 {
   font-size: 70px;
   text-shadow: 3px 3px gray;
+  color: #F5F5F5;
 }
 
 form {
