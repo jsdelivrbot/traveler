@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { BrowserRouter, Route } from 'react-router-dom';
-
+import { connect } from 'react-redux';
+import { addResults } from '../actions';
 const BASE_URL = "https://api.yelp.com"
 
-export default class Landing extends Component {
+class Landing extends Component {
   constructor(props) {
     super(props);
     this.findLocation = this.findLocation.bind(this);
@@ -53,22 +54,16 @@ export default class Landing extends Component {
       .then(token => {
         this.makeRequest(token, location, "things to do").then(this.resolveData.bind(this, "thingsToDo"))
         this.makeRequest(token, location, "food near me").then(this.resolveData.bind(this, "foodNearMe"))
-      });
+      }).then(this.submitLocation.bind(this));
     this.setState({
       location: ""
     })
   }
 
   resolveData(searchTerm, data) {
-    console.log(searchTerm, data);
-    let results = this.state.results;
+    let results = {};
     results[searchTerm] = data;
-    this.setState({
-      results: results
-    })
-
-    console.log(this.state.results)
-    this.props.history.push('/results');
+    this.props.addResults(results)
   }
 
   makeRequest(token, location, searchTerm) {
@@ -91,7 +86,6 @@ export default class Landing extends Component {
     this.setState({
       location: e.target.value
     });
-    console.log(this.state.location);
   }
 
   submitLocation() {
@@ -121,3 +115,5 @@ export default class Landing extends Component {
     );
   }
 }
+
+export default connect(null, { addResults })(Landing)
