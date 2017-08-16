@@ -14,42 +14,35 @@ class Results extends Component {
 
   renderResults(results) {
     return results.map(result => {
-      return <tr>
-        <td>
-          <p>{result.name}</p>
-          <p>{result.rating}</p>
-          <p>{result.price}</p>
-          <a href={result.url} className="pullRight">
-            <img src={result.image_url} className="imgThumbnail" />
+      return <li className="list-group-item">
+        <ul><h4>{result.name}</h4></ul>
+        <ul>&#9734; {result.rating}/5</ul>
+        <ul>{result.price}</ul>
+        <ul>
+          <a href={result.url}>
+            <img src={result.image_url} className="img-thumbnail" />
           </a>
-        </td>
-      </tr>
+        </ul>
+      </li>
     });
   }
 
+
   render() {
     return (
-      <div>
-        <table className="table">
-          <tbody>
-            <tr>
-              <th>
-                Food Near me
-              </th>
-            </tr>
+      <div className="row">
+        <div className="col-md-6">
+          <ul className="list-group" className="pull-left">
+          <h2><strong>Food Near Me</strong></h2>
             { this.renderResults(this.props.results.foodNearMe) }
-          </tbody>
-        </table>
-        <table className="table">
-          <tbody>
-            <tr>
-              <th>
-                Things To Do
-              </th>
-            </tr>
+          </ul>
+        </div>
+        <div className="col-md-6">
+          <ul className="list-group" className="pull-right">
+          <h2><strong>Things To Do</strong></h2>
             { this.renderResults(this.props.results.thingsToDo) }
-          </tbody>
-        </table>
+          </ul>
+        </div>
       </div>
     );
   }

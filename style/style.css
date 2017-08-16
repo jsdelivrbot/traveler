@@ -85,3 +85,40 @@ input {
 .no-cssanimations .slideshow li {
 	opacity: 1;
 }
+
+
+@media all and (min-width: 40em) {
+  .list-group-item {
+    width: 50%;
+  }
+}
+
+@media all and (min-width: 60em) {
+  .list-group-item {
+    width: 33.33%;
+  }
+}
+
+.list-group-item {
+  display: flex;
+  padding: 0.5em;
+  width: 100%;
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+.img-thumbnail {
+  position: relative;
+  width: 200px;
+  max-height: 200px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.list-group {
+  display: flex;
+}

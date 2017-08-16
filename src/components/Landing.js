@@ -52,8 +52,8 @@ class Landing extends Component {
 
     this.authorizeYelp()
       .then(token => {
-        this.makeRequest(token, location, "things to do").then(this.resolveData.bind(this, "thingsToDo"))
-        this.makeRequest(token, location, "food near me").then(this.resolveData.bind(this, "foodNearMe"))
+        this.makeRequest(token, location, "tourist attractions").then(this.resolveData.bind(this, "thingsToDo"))
+        this.makeRequest(token, location, "tourist restaurants").then(this.resolveData.bind(this, "foodNearMe"))
       }).then(this.submitLocation.bind(this));
     this.setState({
       location: ""
