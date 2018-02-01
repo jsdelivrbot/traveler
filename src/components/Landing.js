@@ -24,8 +24,8 @@ class Landing extends Component {
   authorizeYelp() {
 
     var authorizationData = {
-      client_id: '_x93JominAE4md1BNp7Zmw',
-      client_secret: '2Wkgfn01nsKpTJJ9Vx7bKXIA3NZ5gRp4svrh6CH1OIUinhb5pFsqEN42pa4FQgy4',
+      client_id: '',
+      client_secret: '',
       grant_type: 'client_credentials'
     }
 
